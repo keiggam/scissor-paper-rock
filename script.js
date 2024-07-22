@@ -6,9 +6,10 @@ const choices = ["scissors","paper","rock"];
 
 function getComputerChoice() {
     //generating a random number from 0 to the array length
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return computerChoices[randomIndex];
-
+    let randomIndex = Math.floor(Math.random() * choices.length);
+    console.log ( "Computer chose " + choices[randomIndex]);
+    return choices[randomIndex];
+    
 }
 
 // Create a function that takes the user choice and returns it 
@@ -18,12 +19,45 @@ function getHumanChoice () {
     while (!choices.includes(userInput)) {
         userInput = prompt("Invalid choice. Please chooose rock, paper or scissors: ").toLowerCase();
     }
+    console.log("You chose " + userInput);
     return userInput;
-    
+
 }
 
-console.log(getHumanChoice());
+// Declaring the players score variable
+let humanScore = 0;
+let computerScore = 0;
 
+// Write the logic to play a single round
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice){
+        console.log("It is a tie!")
+    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log("You win! Rock beats Scissors!");
+        humanScore ++;
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+        console.log("You lose! Paper beats Rock!");
+        computerScore ++;
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+        console.log("You lose! Scissors beats Paper!");
+        computerScore ++;
+    } else if (humanChoice == "paper" && computerChoice === "rock") {
+        console.log("You win! Paper beats Rock!");
+        humanScore ++;
+    } else if (humanChoice == "scissors" && computerChoice === "paper") {
+        console.log("You win! Scissors beats Paper!");
+        humanScore ++;
+    } else {
+        console.log("You lose! Rock beats Scissors!");
+        computerScore ++;
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
 
 
