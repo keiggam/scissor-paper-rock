@@ -2,31 +2,9 @@
 
 const choices = ["scissors","paper","rock"];
 
-// create a new function named getComputerChoice
-
-function getComputerChoice() {
-    //generating a random number from 0 to the array length
-    let randomIndex = Math.floor(Math.random() * choices.length);
-    console.log ( "Computer chose " + choices[randomIndex]);
-    return choices[randomIndex];
-    
-}
-
-// Create a function that takes the user choice and returns it 
- 
-function getHumanChoice () {
-    let userInput = prompt("Please enter rock, paper, or scissors: ").toLowerCase();
-    while (!choices.includes(userInput)) {
-        userInput = prompt("Invalid choice. Please chooose rock, paper or scissors: ").toLowerCase();
-    }
-    console.log("You chose " + userInput);
-    return userInput;
-
-}
-
-// Declaring the players score variable
 let humanScore = 0;
 let computerScore = 0;
+
 
 // Write the logic to play a single round
 
@@ -54,10 +32,47 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+// writing the logic to play the entire game
+
+function playGame(){
+    
+    //loop runs until i is less than 5
+    for ( let i = 1 ; i < 6; i++) {
+
+        // create a new function named getComputerChoice
+
+        function getComputerChoice() {
+            //generating a random number from 0 to the array length
+            let randomIndex = Math.floor(Math.random() * choices.length);
+            console.log ( "Computer chose " + choices[randomIndex]);
+            return choices[randomIndex]; 
+        };
+
+        // Create a function that takes the user choice and returns it 
+ 
+        function getHumanChoice () {
+            let userInput = prompt("Game " + i + ": Please enter rock, paper, or scissors: ").toLowerCase();
+            while (!choices.includes(userInput)) {
+                userInput = prompt("Invalid choice. Please chooose rock, paper or scissors: ").toLowerCase();
+            }
+            console.log("You chose " + userInput);
+            return userInput;
+        }
+
+        console.log("Game " + i);
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+
+        playRound(humanSelection, computerSelection);
+    
+    }
+
+}
+      
 
 
 
+
+playGame();
