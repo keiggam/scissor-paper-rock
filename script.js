@@ -40,7 +40,7 @@ function playGame(){
     //loop runs until i is less than 5
     for ( let i = 1 ; i < 6; i++) {
 
-        // create a new function named getComputerChoice
+        // Create a new function named getComputerChoice
 
         function getComputerChoice() {
             //generating a random number from 0 to the array length
@@ -63,11 +63,15 @@ function playGame(){
         console.log("Game " + i);
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
-
-
         playRound(humanSelection, computerSelection);
-    
+
+        // Display the current score
+
+        console.log(`Current Score - Human : ${humanScore} , Computer : ${computerScore}`);
     }
+
+    
+
 
 }
       
