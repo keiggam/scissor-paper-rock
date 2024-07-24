@@ -70,13 +70,17 @@ function playGame(){
         console.log(`Current Score - Human : ${humanScore} , Computer : ${computerScore}`);
     }
 
-    
+    // Display the winner of the game
 
+    if ( humanScore > computerScore ) {
+        console.log("Human is the winner! Congratulations!");
+    } else if ( humanScore < computerScore) {
+        console.log("***Computer is the winner! Best luck next time!***");
+    } else {
+        console.log("The game is a tie overall.");
+    }
 
 }
       
-
-
-
-
+// Run the game
 playGame();
