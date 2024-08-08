@@ -55,16 +55,14 @@ function getHumanChoice () {
 // define the main game function 
 
 function playGame(){
-    //loop runs until i is less than 5
-    for ( let i = 1 ; i < 6; i++) {
-        console.log("Game " + i);
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
+    
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
         
-        // Display the current score
-        console.log(`Current Score - Human : ${humanScore} , Computer : ${computerScore}`);
-    }
+    // Display the current score
+    console.log(`Current Score - Human : ${humanScore} , Computer : ${computerScore}`);
+    
 
     // Display the winner of the game
 
@@ -77,6 +75,20 @@ function playGame(){
     }
 
 }
+
+// Run the game
+playGame();
+
+
+// add event listeners to the buttons
+document.getElementById('rock').addEventListener('click', () => 
+    playRound('rock',getComputerChoice()));
+document.getElementById('scissors').addEventListener('click', () => 
+    playRound('scissors',getComputerChoice()));
+document.getElementById('rock').addEventListener('click', () => 
+    playRound('rock',getComputerChoice()));
+
+
 
 /*
 
@@ -131,5 +143,4 @@ function playGame(){
 
 */
       
-// Run the game
-playGame();
+
